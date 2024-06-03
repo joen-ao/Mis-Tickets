@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.input {
+  font-size: 16;
+  padding: 6px 12px;
+  border-radius: 4;
+  border: none;
+  width: 200;
+}
+.navbarTitleContainer {
+  flex: 1;
+  display: flex;
+}
+.navbarTitle {
+  font-size: 24px;
+  font-weight: "bold";
+}
+.profile {
+  margin-left: 24px;
+  color: #fff;
+  text-decoration: none;
+}
