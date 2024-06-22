@@ -8,7 +8,6 @@ const Navbar = forwardRef(({onSearch}, ref) => {
   
 
   useEffect(()=>{
-    console.log('1010 efect');
   },[search, onSearch]);
 
   const handleInputChange = (evt)=>{
