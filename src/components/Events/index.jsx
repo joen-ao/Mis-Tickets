@@ -1,7 +1,7 @@
-import EventItem from "./components/Eventitem";
-
 import { useNavigate } from "react-router-dom";
+import { memo } from "react";
 
+import EventItem from "./components/Eventitem";
 
 const Events = ({ searchTerm, events }) => {
     
@@ -11,6 +11,8 @@ const Events = ({ searchTerm, events }) => {
     const handleEvenItemClick = (id) =>{
         navigate(`/detail/${id}`)
     }
+
+    console.log('rendered event')
 
     const renderEvents = () =>{
         let eventsFiltered = events;
@@ -40,4 +42,4 @@ const Events = ({ searchTerm, events }) => {
         </div>
     );
 }
-export default Events;
+export default memo(Events); //para evitar el rerendereo, solo usar en listas

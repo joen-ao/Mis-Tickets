@@ -23,7 +23,7 @@
 }
 .activePage {
   background-color: #fff;
-  color: black;
+  color: #000;
   border-radius: 20px;
 }
 .disabledPage {

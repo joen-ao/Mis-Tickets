@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import Events from '../../components/Events';
 import Navbar from '../../components/Navbar';
 import ReactPaginate from 'react-paginate';
@@ -7,35 +7,43 @@ import useEventsResults from '../../state/events-results';
 
 const Home = () => {
   const {data, isLoading, error, fetchEvents} = useEventsResults();
-  const events = data?._embedded?.events || [];
+  const events = useMemo(() => data?._embedded?.events || [], [data?._embedded?.events]);
   const page = data?.page || {};
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(0); // Estado para la página actual
   const contaninerRef = useRef();
-  
-  useEffect(()=>{
-    fetchEvents();
-  },[]);
 
-  const handleNavbarOnSearch= (term) => {
+  const fetchMyEventsRef = useRef();
+  fetchMyEventsRef.current = fetchEvents;
+
+  useEffect(() => {
+    fetchMyEventsRef.current();
+  }, []);
+
+  const handleNavbarOnSearch = (term) => {
     setSearchTerm(term);
     fetchEvents(`&keyword=${term}`);
+    setCurrentPage(0); // Resetea la página actual cuando se hace una nueva búsqueda
   }
-  const handlePageClick =({selected}) => {
+
+  const handlePageClick = useCallback(({ selected }) => {
+    setCurrentPage(selected); // Actualiza el estado de la página actual
     fetchEvents(`&keyword=${searchTerm}&page=${selected}`);
-  };
+  }, [searchTerm, fetchEvents]);
 
-
-  const renderEvents =()=>{
-    if(isLoading){
-      return <div> Cargando resultados </div>
+  const renderEvents = () => {
+    if (isLoading) {
+      return <div>Cargando resultados</div>;
     }
     
-    if(error){
-      return ( <div>Ha ocurrido un error</div>)
+    if (error) {
+      return <div>Ha ocurrido un error</div>;
     }
+    
     return (
+      
       <div>
-        <Events searchTerm = {searchTerm} events={events} />
+        <Events searchTerm={searchTerm} events={events} />
         <ReactPaginate
           className={styles.pagination}
           nextClassName={styles.next}
@@ -43,24 +51,25 @@ const Home = () => {
           pageClassName={styles.page}
           activeClassName={styles.activePage}
           disabledClassName={styles.disabledPage}
-           breakLabel="..."
-           nextLabel=">"
-           onPageChange={handlePageClick}
-           pageRangeDisplayed={5}
-           pageCount={page.totalPages}
-           previousLabel="<"
-           renderOnZeroPageCount={null}
+          breakLabel="..."
+          nextLabel=">"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={page.totalPages}
+          forcePage={currentPage} // Asegura que ReactPaginate muestre la página correcta
+          previousLabel="<"
+          renderOnZeroPageCount={null}
         />
       </div>
-      
-    )
+    );
   }
   
-  return(
+  return (
     <>
-     <Navbar onSearch={handleNavbarOnSearch} ref={contaninerRef} />
-     {renderEvents()}
+      <Navbar onSearch={handleNavbarOnSearch} ref={contaninerRef} />
+      {renderEvents()}
     </>
-  )
+  );
 }
+
 export default Home;
