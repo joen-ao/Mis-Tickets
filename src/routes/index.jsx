@@ -2,6 +2,9 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
+
+import { Suspense } from "react";
+
 import Home from '../views/Home';
 import Detail from '../views/Detail';
 import Error404 from "../views/Error404";
@@ -9,6 +12,7 @@ import Error404 from "../views/Error404";
 import Profile from "../views/Profile";
 import MyInfo from "../views/Profile/components/MyInfo";
 import LikedEvents from "../views/Profile/components/LikedEvents";
+import SignupForm from "../components/SignupForm";
 
   const router = createBrowserRouter([
     {
@@ -18,7 +22,11 @@ import LikedEvents from "../views/Profile/components/LikedEvents";
     },
     {
         path:'/detail/:eventId',
-        element: <Detail/>
+        element: 
+          (<Suspense fallback={<div>Cargando...</div>}>
+            <Detail/>
+          </Suspense>)
+        
     },
     {
         path:'/profile',
@@ -30,6 +38,10 @@ import LikedEvents from "../views/Profile/components/LikedEvents";
           path: 'liked-events',
           element: <LikedEvents/>
         }]
+    },
+    {
+      path:'/sign-up',
+      element: <SignupForm/>
     }
   ])
 const MyRoutes=()=><RouterProvider router={router} />;
