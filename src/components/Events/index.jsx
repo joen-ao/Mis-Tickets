@@ -37,7 +37,6 @@ const Events = ({ searchTerm, events }) => {
 
     return(
         <div>
-            Eventos
             {renderEvents()}
         </div>
     );

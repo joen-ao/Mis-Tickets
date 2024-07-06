@@ -1,4 +1,5 @@
 .container {
+  padding-top: 100px;
 }
 .mainInfoContainer {
   display: flex;
@@ -13,23 +14,28 @@
 .eventName {
   margin: 12px 0;
   font-size: 28px;
+  color: black;
 }
 .infoParagraph {
   text-align: left;
   margin: 4px 0;
+  color: black;
 }
 .dateParagraph {
   margin: 4px 0;
+  color: black;
 }
 .seatInfoContainer {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   margin-top: 10px;
+  color: black;
 }
 .seatMapTitle {
   margin: 6px;
   font-size: 16px;
+  color: black;
 }
 .pleaseNoteLegend {
   text-align: left;

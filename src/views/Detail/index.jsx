@@ -44,6 +44,7 @@ const Detail = () => {
      // eventData.ssss?(?) => cuando se accede a la info directo de la API para que no marque undefinded a los valores
     return(
         <div className={styles.container}>
+            
             <div className={styles.mainInfoContainer}>
                 <img src={eventData.images?.[0].url} className={styles.eventImage} alt={eventData.name}/>
                 <h4 className={styles.eventName} >{eventData.name}</h4>

@@ -9,6 +9,7 @@
   padding: 0 8px;
   cursor: pointer;
   font-weight: 700;
+  color: rgb(45, 45, 231);
 }
 .previous,
 .next {
@@ -17,15 +18,23 @@
 }
 .previous {
   margin-right: 8px;
+  color: rgb(45, 45, 231);
 }
 .next {
   margin-left: 8px;
+  color: rgb(45, 45, 231);
 }
 .activePage {
-  background-color: #fff;
-  color: #000;
+  background-color: rgb(45, 45, 231);
+  color: #ffffff;
   border-radius: 20px;
 }
 .disabledPage {
   cursor: not-allowed;
+}
+.containerHome {
+  width: 100%;
+}
+.content {
+  margin-top: 100px; /* Ajusta este valor según la altura real de tu Navbar */
 }

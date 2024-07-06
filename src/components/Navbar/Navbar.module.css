@@ -1,22 +1,33 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  background-color: rgb(45, 45, 231);
+  padding: 5px;
+  z-index: 1000;
 }
 .input {
-  font-size: 16;
+  font-size: 16px;
   padding: 6px 12px;
   border-radius: 4;
   border: none;
-  width: 200;
+  width: 200px;
+  background-color: #fff;
+  color: #000000;
 }
 .navbarTitleContainer {
   flex: 1;
   display: flex;
+  color: #fff;
+  margin-left: 15px;
 }
 .navbarTitle {
   font-size: 24px;
-  font-weight: "bold";
+  font-weight: bold;
 }
 .profile {
   margin-left: 24px;
@@ -27,4 +38,5 @@
   margin-left: 24px;
   color: #fff;
   text-decoration: none;
+  margin-right: 24px;
 }

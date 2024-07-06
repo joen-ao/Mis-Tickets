@@ -12,18 +12,21 @@
 .eventName {
   margin: 0;
   font-size: 22px;
+  color: #000;
 }
 .eventInfo {
   text-align: left;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #000;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
 .seeMoreBtn {
   margin-top: 8px;
+  background-color: rgb(45, 45, 231);
 }
 .imageContainer {
   position: relative;

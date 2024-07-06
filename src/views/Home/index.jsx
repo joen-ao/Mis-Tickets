@@ -42,7 +42,7 @@ const Home = () => {
     
     return (
       
-      <div>
+      <div className={styles.containerHome}>
         <Events searchTerm={searchTerm} events={events} />
         <ReactPaginate
           className={styles.pagination}
@@ -66,8 +66,12 @@ const Home = () => {
   
   return (
     <>
+    <div className={styles.containerHome}>
       <Navbar onSearch={handleNavbarOnSearch} ref={contaninerRef} />
-      {renderEvents()}
+      <div className={styles.content}>
+        {renderEvents()}
+      </div>
+    </div>
     </>
   );
 }
