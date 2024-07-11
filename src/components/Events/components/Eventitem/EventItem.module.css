@@ -2,6 +2,7 @@
   display: flex;
   margin: 24px 0px;
   align-items: start;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 .eventInfoContainer {
   display: flex;
@@ -16,17 +17,18 @@
 }
 .eventInfo {
   text-align: left;
-  margin: 0;
+  margin: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #000;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 .seeMoreBtn {
-  margin-top: 8px;
-  background-color: rgb(45, 45, 231);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #0446a8;
 }
 .imageContainer {
   position: relative;
@@ -38,4 +40,9 @@
   left: 10px;
   z-index: 1;
   cursor: pointer;
+}
+.eventDate {
+  color: #0446a8;
+  font-weight: bold;
+  margin: 2px;
 }

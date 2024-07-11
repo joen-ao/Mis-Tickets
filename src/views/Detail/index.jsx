@@ -54,11 +54,19 @@ const Detail = () => {
             </div>
             <div className={styles.seatInfoContainer}>
                 <h6 className={styles.seatMapTitle} >Mapa del evento</h6>
-                <img src={eventData.seatmap?.staticUrl} alt='Seatmap Event'/>
-                <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
-                <p className={styles.priceRangeLegend} >Rango de precios: {eventData.priceRanges?.[0].min}-{eventData.priceRanges?.[0].max} {eventData.priceRanges?.[0].currency}</p>
+                
+                <div className={styles.seatInfoContainer2}>
+                    <img src={eventData.seatmap?.staticUrl} alt='Seatmap Event' className={styles.eventMap} />
+                    <div>
+                        <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
+                        <p className={styles.priceRangeLegend} >Rango de precios: {eventData.priceRanges?.[0].min}-{eventData.priceRanges?.[0].max} {eventData.priceRanges?.[0].currency}</p>
+                    </div>
+                
+                </div>
+                
+               
             </div>
-            <a href={eventData.url}>
+            <a href={eventData.url} className={styles.eventUrl}>
             Ir por tus boletos
             </a>
         </div>

@@ -12,7 +12,6 @@ const Events = ({ searchTerm, events }) => {
         navigate(`/detail/${id}`)
     }
 
-    console.log('rendered event')
 
     const renderEvents = () =>{
         let eventsFiltered = events;
@@ -29,6 +28,7 @@ const Events = ({ searchTerm, events }) => {
                 image={evenItem.images[0].url}
                 onEventClick={handleEvenItemClick}
                 id={evenItem.id}
+                date={evenItem.dates?.start?.dateTime} 
             />
         ))
     }

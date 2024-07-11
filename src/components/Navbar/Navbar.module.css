@@ -6,8 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: rgb(45, 45, 231);
-  padding: 5px;
+  background-color: #0446a8; /*color primario*/
+  padding: 15px;
   z-index: 1000;
 }
 .input {
@@ -23,7 +23,7 @@
   flex: 1;
   display: flex;
   color: #fff;
-  margin-left: 15px;
+  margin-left: 275px;
 }
 .navbarTitle {
   font-size: 24px;
@@ -33,10 +33,12 @@
   margin-left: 24px;
   color: #fff;
   text-decoration: none;
+  font-weight: bold;
 }
 .signup {
   margin-left: 24px;
   color: #fff;
   text-decoration: none;
-  margin-right: 24px;
+  margin-right: 310px;
+  font-weight: bold;
 }

@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 .label {
   font-size: 17px;
@@ -17,8 +18,11 @@
   width: 280px;
   padding: 4px;
   margin-top: 4px;
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 .submitButton {
   width: 292px;
   margin-top: 20px;
+  background-color: rgb(45, 45, 231);
 }

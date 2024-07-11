@@ -23,11 +23,11 @@
 }
 .dateParagraph {
   margin: 4px 0;
-  color: black;
+  color: rgb(45, 45, 231);
+  font-weight: bold;
 }
 .seatInfoContainer {
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
   margin-top: 10px;
   color: black;
@@ -36,11 +36,24 @@
   margin: 6px;
   font-size: 16px;
   color: black;
+  justify-content: center;
 }
 .pleaseNoteLegend {
   text-align: left;
   margin: 10px;
 }
 .priceRangeLegend {
-  margin: 0;
+  margin-top: 8px; /* Ajusta este margen según sea necesario */
+  margin-bottom: 8px;
+}
+.eventUrl {
+  text-decoration: none;
+  color: rgb(45, 45, 231);
+  font-weight: bold;
+}
+.seatInfoContainer2 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  margin-top: 10px;
 }
