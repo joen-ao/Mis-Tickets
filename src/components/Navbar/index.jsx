@@ -40,7 +40,7 @@ const Navbar = forwardRef(({onSearch}, ref) => {
         className={styles.input}
         />
        <Link to='/profile/my-info' className={styles.profile} >Mi perfil</Link>
-       <Link to= 'sign-up' className={styles.signup} >Inicio de Sesion</Link>
+       <Link to= '/sign-up' className={styles.signup} >Inicio de Sesion</Link>
     </div>
   );
 });

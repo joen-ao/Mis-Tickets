@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
+import styles from './event.module.css';
 
 import EventItem from "./components/Eventitem";
 
@@ -29,6 +30,7 @@ const Events = ({ searchTerm, events }) => {
                 onEventClick={handleEvenItemClick}
                 id={evenItem.id}
                 date={evenItem.dates?.start?.dateTime} 
+                city = {evenItem._embedded?.venues[0]?.city?.name}
             />
         ))
     }
@@ -36,7 +38,7 @@ const Events = ({ searchTerm, events }) => {
     
 
     return(
-        <div>
+        <div className={styles.eventsContainer}>
             {renderEvents()}
         </div>
     );

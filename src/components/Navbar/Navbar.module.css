@@ -23,7 +23,7 @@
   flex: 1;
   display: flex;
   color: #fff;
-  margin-left: 275px;
+  margin-left: 305px;
 }
 .navbarTitle {
   font-size: 24px;
@@ -39,6 +39,6 @@
   margin-left: 24px;
   color: #fff;
   text-decoration: none;
-  margin-right: 310px;
+  margin-right: 340px;
   font-weight: bold;
 }

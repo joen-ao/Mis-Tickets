@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import styles from './Detail.module.css'
 import { format } from "date-fns";
 import {es} from 'date-fns/locale'
+import Navbar from "../../components/Navbar";
 
 const Detail = () => {
     //hay que saber cuando crear un hook, en este caso no vale la pena crear un hook porque se puede hacer un llamado a la api porque solamente se llamara aqui
@@ -10,8 +11,17 @@ const Detail = () => {
     const [eventData, setEventData] = useState({});
     const [error, setError] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(0); 
+    const contaninerRef = useRef();
 
     
+
+    const handleNavbarOnSearch = (term) => {
+        setSearchTerm(term);
+        fetchEvents(`&keyword=${term}`);
+        setCurrentPage(0); // Resetea la página actual cuando se hace una nueva búsqueda
+      }
 
     useEffect(()=>{
         const fetchEventData = async()=>{
@@ -44,6 +54,8 @@ const Detail = () => {
      // eventData.ssss?(?) => cuando se accede a la info directo de la API para que no marque undefinded a los valores
     return(
         <div className={styles.container}>
+
+        <Navbar onSearch={handleNavbarOnSearch} ref={contaninerRef} />
             
             <div className={styles.mainInfoContainer}>
                 <img src={eventData.images?.[0].url} className={styles.eventImage} alt={eventData.name}/>
