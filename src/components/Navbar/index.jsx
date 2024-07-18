@@ -1,50 +1,53 @@
-import { useState, useEffect, forwardRef, useImperativeHandle} from "react";
-import styles from './Navbar.module.css'
-import { Link } from "react-router-dom";
+import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
+import { useLocation, Link } from "react-router-dom";
+import styles from './Navbar.module.css';
 
-const Navbar = forwardRef(({onSearch}, ref) => {
-
+const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState('');
-  
+  const location = useLocation();
 
-  useEffect(()=>{
-  },[search, onSearch]);
+  useEffect(() => {}, [search, onSearch]);
 
-  const handleInputChange = (evt)=>{
+  const handleInputChange = (evt) => {
     setSearch(evt.target.value);
-  }
+  };
 
-  const handleInputKeyDown = (evt) =>{
-    if(evt.key ==='Enter'){
+  const handleInputKeyDown = (evt) => {
+    if (evt.key === 'Enter') {
       onSearch(search);
     }
-  }
+  };
 
-  useImperativeHandle(ref, ()=>({
+  useImperativeHandle(ref, () => ({
     search,
     setSearch,
-  }))
+  }));
 
+  const isHomePage = location.pathname === '/';
 
   return (
-    <div ref={ref} className={styles.navbar} >
+    <div ref={ref} className={styles.navbar}>
       <div className={styles.navbarTitleContainer}>
-        <p className={styles.navbarTitle}>Mis Tickets</p>
+        
+        <Link to='/' className={styles.navbarTitle} >Mis Tickets</Link>
       </div>
-      
-      <input 
-        placeholder="Busca tu evento favorito" 
-        onChange={handleInputChange} 
-        onKeyDown={handleInputKeyDown}
-        value={search}
-        className={styles.input}
+
+      {isHomePage && (
+        <input
+          placeholder="Busca tu evento favorito"
+          onChange={handleInputChange}
+          onKeyDown={handleInputKeyDown}
+          value={search}
+          className={styles.input}
         />
-       <Link to='/profile/my-info' className={styles.profile} >Mi perfil</Link>
-       <Link to= '/sign-up' className={styles.signup} >Inicio de Sesion</Link>
+      )}
+      <Link to='/profile/my-info' className={styles.profile}>Mi perfil</Link>
+      <Link to='/sign-up' className={styles.signup}>Inicio de Sesion</Link>
     </div>
   );
 });
 
-Navbar.displayName='Navbar';
+Navbar.displayName = 'Navbar';
 
 export default Navbar;
+
