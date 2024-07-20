@@ -12,10 +12,6 @@ const Detail = () => {
     const [isLoading, setIsLoading] = useState(true);
     const contaninerRef = useRef();
 
-    const handleNavbarOnSearch = (term) => {
-        setEventData(term);
-        fetchEvents(`&keyword=${term}`);
-    };
 
     useEffect(() => {
         const fetchEventData = async () => {
@@ -41,9 +37,11 @@ const Detail = () => {
         return <div className={styles.error}>Ha ocurrido un error...</div>;
     }
 
+    const genres = eventData.classifications?.[0] || {};
+
     return (
         <div className={styles.container}>
-            <Navbar onSearch={handleNavbarOnSearch} ref={contaninerRef} />
+            <Navbar ref={contaninerRef} />
 
             <div className={styles.mainInfoContainer}>
                 <img src={eventData.images?.[0].url} className={styles.eventImage} alt={eventData.name} />
@@ -54,6 +52,11 @@ const Detail = () => {
                         {format(new Date(eventData.dates?.start.dateTime), 'd LLLL yyyy H:mm', { locale: es })} hrs
                     </p>
                 )}
+                <div className={styles.genresContainer}>
+                    {genres.segment?.name && <span className={styles.genreTag}>{genres.segment.name}</span>}
+                    {genres.genre?.name && <span className={styles.genreTag}>{genres.genre.name}</span>}
+                    {genres.subGenre?.name && <span className={styles.genreTag}>{genres.subGenre.name}</span>}
+                </div>
             </div>
 
             <div className={styles.seatInfoContainer}>

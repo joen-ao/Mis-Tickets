@@ -31,6 +31,7 @@ const Events = ({ searchTerm, events }) => {
                 id={evenItem.id}
                 date={evenItem.dates?.start?.dateTime} 
                 city = {evenItem._embedded?.venues[0]?.city?.name}
+                genres={evenItem.classifications[0]}
             />
         ))
     }

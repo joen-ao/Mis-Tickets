@@ -19,3 +19,20 @@
   color: rgb(45, 45, 231);
   text-decoration: none;
 }
+.likedEventsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+.eventsContainer {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* Ajusta la cantidad de columnas */
+  gap: 16px; /* Espacio entre los elementos */
+  padding: 16px;
+  margin: 0 16px; /* Márgenes laterales para centrar el contenedor */
+  justify-content: center; /* Centra los elementos en la fila */
+}

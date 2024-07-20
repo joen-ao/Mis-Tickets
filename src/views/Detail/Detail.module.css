@@ -29,7 +29,7 @@
 .eventName {
   margin: 12px 0;
   font-size: 28px;
-  color: #333;
+  color: #0056b3;
   font-weight: bold;
   text-align: center;
 }
@@ -115,4 +115,19 @@
   color: #333;
   font-size: 18px;
   margin-top: 50px;
+}
+
+.genresContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px;
+}
+
+.genreTag {
+  background-color: #0056b3;
+  color: white;
+  padding: 4px 19px;
+  border-radius: 15px;
+  font-size: 15px;
 }

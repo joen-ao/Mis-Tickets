@@ -1,10 +1,11 @@
 import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import styles from './Navbar.module.css';
 
 const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {}, [search, onSearch]);
 
@@ -25,11 +26,15 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
 
   const isHomePage = location.pathname === '/';
 
+  const handleHomeClick = () => {
+    navigate('/');
+};
+
   return (
     <div ref={ref} className={styles.navbar}>
       <div className={styles.navbarTitleContainer}>
         
-        <Link to='/' className={styles.navbarTitle} >Mis Tickets</Link>
+        <p onClick={handleHomeClick} className={styles.navbarTitle} >Mis Tickets</p>
       </div>
 
       {isHomePage && (
@@ -38,7 +43,7 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
           onChange={handleInputChange}
           onKeyDown={handleInputKeyDown}
           value={search}
-          className={styles.input}
+          className={styles.inputSearch}
         />
       )}
       <Link to='/profile/my-info' className={styles.profile}>Mi perfil</Link>
