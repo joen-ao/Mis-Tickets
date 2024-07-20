@@ -8,48 +8,53 @@ import Navbar from "../../components/Navbar";
 const Detail = () => {
     const { eventId } = useParams();
     const [eventData, setEventData] = useState({});
-    const [error, setError] = useState({});
+    const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const contaninerRef = useRef();
-
+    const containerRef = useRef();
 
     useEffect(() => {
         const fetchEventData = async () => {
             try {
                 const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=mgnrCDj1lDC7OAQkXfBmNIzdkO4OBcGH`);
+                if (!response.ok) {
+                    throw new Error(`Error fetching event data: ${response.statusText}`);
+                }
                 const data = await response.json();
                 setEventData(data);
-                setIsLoading(false);
             } catch (error) {
+                setError(error.message);
                 setEventData({});
-                setError(error);
+            } finally {
                 setIsLoading(false);
             }
         };
+
         fetchEventData();
     }, [eventId]);
 
-    if (isLoading && Object.keys(eventData).length === 0) {
+    if (isLoading) {
         return <div className={styles.loading}>Cargando Evento...</div>;
     }
 
-    if (Object.keys(error).length > 0) {
-        return <div className={styles.error}>Ha ocurrido un error...</div>;
+    if (error) {
+        return <div className={styles.error}>Ha ocurrido un error: {error}</div>;
     }
 
     const genres = eventData.classifications?.[0] || {};
 
     return (
         <div className={styles.container}>
-            <Navbar ref={contaninerRef} />
+            <Navbar ref={containerRef} />
 
             <div className={styles.mainInfoContainer}>
-                <img src={eventData.images?.[0].url} className={styles.eventImage} alt={eventData.name} />
+                {eventData.images?.[0]?.url && (
+                    <img src={eventData.images[0].url} className={styles.eventImage} alt={eventData.name} />
+                )}
                 <h4 className={styles.eventName}>{eventData.name}</h4>
                 <p className={styles.infoParagraph}>{eventData.info}</p>
-                {eventData.dates?.start.dateTime && (
+                {eventData.dates?.start?.dateTime && (
                     <p className={styles.dateParagraph}>
-                        {format(new Date(eventData.dates?.start.dateTime), 'd LLLL yyyy H:mm', { locale: es })} hrs
+                        {format(new Date(eventData.dates.start.dateTime), 'd LLLL yyyy H:mm', { locale: es })} hrs
                     </p>
                 )}
                 <div className={styles.genresContainer}>
@@ -62,19 +67,25 @@ const Detail = () => {
             <div className={styles.seatInfoContainer}>
                 <h6 className={styles.seatMapTitle}>Mapa del evento</h6>
                 <div className={styles.seatInfoContainer2}>
-                    <img src={eventData.seatmap?.staticUrl} alt='Seatmap Event' className={styles.eventMap} />
+                    {eventData.seatmap?.staticUrl && (
+                        <img src={eventData.seatmap.staticUrl} alt='Seatmap Event' className={styles.eventMap} />
+                    )}
                     <div className={styles.seatInfoText}>
                         <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
-                        <p className={styles.priceRangeLegend}>
-                            Rango de precios: {eventData.priceRanges?.[0].min} - {eventData.priceRanges?.[0].max} {eventData.priceRanges?.[0].currency}
-                        </p>
+                        {eventData.priceRanges?.[0] && (
+                            <p className={styles.priceRangeLegend}>
+                                Rango de precios: {eventData.priceRanges[0].min} - {eventData.priceRanges[0].max} {eventData.priceRanges[0].currency}
+                            </p>
+                        )}
                     </div>
                 </div>
             </div>
 
-            <a href={eventData.url} className={styles.eventUrl}>
-                Ir por tus boletos
-            </a>
+            {eventData.url && (
+                <a href={eventData.url} className={styles.eventUrl}>
+                    Ir por tus boletos
+                </a>
+            )}
         </div>
     );
 };

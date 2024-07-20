@@ -3,7 +3,7 @@
 }
 .tab {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 600px;
   padding-bottom: 4px;
   cursor: pointer;
   transition: opacity 0.2s ease;
@@ -13,11 +13,7 @@
   opacity: 0.8;
 }
 .tabsContainer {
-  margin: 12px 0;
-}
-.homeLink {
-  color: rgb(45, 45, 231);
-  text-decoration: none;
+  margin: 110px 0px;
 }
 .likedEventsContainer {
   display: flex;
@@ -35,4 +31,8 @@
   padding: 16px;
   margin: 0 16px; /* Márgenes laterales para centrar el contenedor */
   justify-content: center; /* Centra los elementos en la fila */
+}
+
+.contentContainer {
+  margin-top: -40px; /* Reduce el margen superior del contenido */
 }

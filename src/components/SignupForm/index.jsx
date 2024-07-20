@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import styles from './Signup.module.css';
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Navbar from '../Navbar'
 
 const USER_DATA = 'userData';
 
@@ -34,30 +35,40 @@ const SignupForm = () => {
 
     return (
         <div>
-            <Link to='/' className={styles.homeLink}>Inicio</Link>
+            <Navbar/>
             <form onSubmit={handleSubmit(handleFormSubmit)} className={styles.form}>
                 <label className={styles.label}>
-                    Name
+                    Nombre
                     <input {...register('name', { required: true })} className={styles.input} />
+                    <span className={styles.highlight}></span>
+                    <span className={styles.bar}></span>
                 </label>
                 <label className={styles.label}>
                     Email
                     <input {...register('email', { required: true, minLength: 1, maxLength: 120 })} className={styles.input} />
+                    <span className={styles.highlight}></span>
+                    <span className={styles.bar}></span>
                 </label>
                 <label className={styles.label}>
-                    Age
+                    Edad
                     <input {...register('age', { required: true, valueAsNumber: true })} className={styles.input} type="number" />
+                    <span className={styles.highlight}></span>
+                    <span className={styles.bar}></span>
                 </label>
                 <label className={styles.label}>
                     ZipCode
                     <input {...register('zipcode', { required: true })} className={styles.input} />
+                    <span className={styles.highlight}></span>
+                    <span className={styles.bar}></span>
                 </label>
                 <label className={styles.label}>
-                    Phone
+                    Telefono
                     <input {...register('phone', { required: true })} className={styles.input} />
+                    <span className={styles.highlight}></span>
+                    <span className={styles.bar}></span>
                 </label>
                 <div>
-                    <button type='submit' className={styles.submitButton}>Submit</button>
+                    <button type='submit' className={styles.submitButton}>Registrarse</button>
                 </div>
             </form>
         </div>

@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import styles from './Profile.module.css';
+import Navbar from "../../components/Navbar";
 
 const Profile = ()=>{
 
@@ -11,7 +12,7 @@ const Profile = ()=>{
 
     return(
         <div>
-            <Link to='/' className={styles.homeLink} >Inicio</Link>
+            <Navbar/>
             <div className={styles.tabsContainer}>
                 <span className={`${pathname.includes('my-info') ? styles.active: '' } ${styles.tab} `}
                 onClick={()=> handleTabClick('my-info') }
@@ -25,7 +26,9 @@ const Profile = ()=>{
                     Eventos favoritos
                 </span>
             </div>
-            <Outlet/> {/*componente para crear rutas anidadas*/ }
+            <div className={styles.contentContainer}>
+                <Outlet /> {/*componente para crear rutas anidadas*/ }
+            </div>
         </div>
     )
 }

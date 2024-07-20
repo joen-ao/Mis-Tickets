@@ -3,7 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: rgb(116, 113, 113);
+  width: 380px;
+  margin: 9em auto;
+  padding: 1em 2em 2em 2em;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
 }
 .label {
   font-size: 17px;
@@ -14,19 +20,79 @@
   align-items: center;
 }
 .input {
-  font-size: 17px;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  appearance: none;
   width: 280px;
-  padding: 4px;
   margin-top: 4px;
   background-color: rgb(255, 255, 255);
-  color: black;
+  color: #636363;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #757575;
 }
+.input:focus {
+  outline: none;
+}
+
 .submitButton {
   width: 292px;
   margin-top: 20px;
-  background-color: rgb(45, 45, 231);
+  background-color: #0563c9;
 }
 .homeLink {
   color: #000000;
   text-decoration: none;
+}
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #4a89dc;
+  transition: all 0.2s ease;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+.input:focus ~ .bar:before,
+.input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.input:focus ~ .highlight {
+  animation: inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #4a89dc;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
 }
