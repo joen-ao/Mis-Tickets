@@ -5,7 +5,7 @@ import HearthUnfilled from '../../../../assets/hearth-unfilled.png';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 
-const EventItem = ({info, id, name, image, date, city, genres, onEventClick}) => {
+const EventItem = ({ id, name, image, date, city, genres, onEventClick}) => {
     const { isEventLiked, toggleEventLike } = useLikeEvents(id);
 
     const handleSeeMoreClick = (evt) => {

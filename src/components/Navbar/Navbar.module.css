@@ -14,10 +14,10 @@
   font-size: 16px;
   padding: 6px 12px;
   border-radius: 104px;
-  border: #fff;
+  border: #636363;
   width: 250px;
   background-color: #fff;
-  color: #000000;
+  color: #636363;
 }
 .navbarTitleContainer {
   flex: 1;

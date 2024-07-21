@@ -12,7 +12,7 @@ import Error404 from "../views/Error404";
 import Profile from "../views/Profile";
 import MyInfo from "../views/Profile/components/MyInfo";
 import LikedEvents from "../views/Profile/components/LikedEvents";
-import SignupForm from "../components/SignupForm";
+import SignupForm from "../views/SignupForm";
 
   const router = createBrowserRouter([
     {
