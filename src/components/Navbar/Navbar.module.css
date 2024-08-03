@@ -1,3 +1,7 @@
+.active {
+  color: #995050;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -5,44 +9,118 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: #0446a8; /*color primario*/
   padding: 15px;
   z-index: 1000;
 }
+
 .inputSearch {
   font-size: 16px;
   padding: 6px 12px;
   border-radius: 104px;
-  border: #636363;
+  border: #fff;
   width: 250px;
   background-color: #fff;
-  color: #636363;
+  color: #000000;
 }
+
 .navbarTitleContainer {
-  flex: 1;
   display: flex;
+  align-items: center;
   color: #fff;
-  margin-left: 280px;
 }
+
 .navbarTitle {
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
   color: #fff;
-  margin: 25px;
+  margin-right: 20px;
   cursor: pointer;
+  margin-left: 300px;
+}
+
+.menuButton {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.navLinks.showMenu {
+  max-height: 500px; /* adjust as needed */
+}
+
+.navLinks a {
+  margin-left: 24px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navLinks a:hover {
+  color: #c2c5ca;
 }
 .profile {
   margin-left: 24px;
   color: #fff;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
+.profile:hover {
+  color: #c2c5ca;
+}
+
 .signup {
   margin-left: 24px;
   color: #fff;
   text-decoration: none;
   margin-right: 340px;
   font-weight: bold;
+}
+.signup:hover {
+  color: #c2c5ca;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbarTitle {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .inputSearch {
+    width: 200px;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+  }
+
+  .navLinks a {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .signup {
+    margin-right: 0;
+  }
 }

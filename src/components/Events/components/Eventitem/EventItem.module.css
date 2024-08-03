@@ -46,6 +46,7 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 8px;
+  justify-content: center;
 }
 
 .genreTag {
@@ -74,7 +75,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .seeMoreBtn:hover {
-  background-color: #0056b3;
+  background-color: #066fdf;
 }

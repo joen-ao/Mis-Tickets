@@ -12,12 +12,6 @@ const Detail = () => {
     const [isLoading, setIsLoading] = useState(true);
     const containerRef = useRef();
 
-    
-    const baseURL = import.meta.env.VITE_API_BASE_URL;
-    console.log(baseURL);
-
-    console.log('j')
-
     useEffect(() => {
         const fetchEventData = async () => {
             try {

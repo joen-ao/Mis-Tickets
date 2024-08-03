@@ -5,7 +5,7 @@
   align-items: center;
   color: rgb(116, 113, 113);
   width: 380px;
-  margin: 9em auto;
+  margin: 150px auto;
   padding: 1em 2em 2em 2em;
   border: 1px solid #ebebeb;
   box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px,
@@ -34,15 +34,14 @@
 .input:focus {
   outline: none;
 }
-
 .submitButton {
   width: 292px;
   margin-top: 20px;
   background-color: #0563c9;
+  transition: background-color 0.3s ease;
 }
-.homeLink {
-  color: #000000;
-  text-decoration: none;
+.submitButton:hover {
+  background-color: #066fdf;
 }
 .bar {
   position: relative;
@@ -71,28 +70,4 @@
 .input:focus ~ .bar:before,
 .input:focus ~ .bar:after {
   width: 50%;
-}
-
-.highlight {
-  position: absolute;
-  height: 60%;
-  width: 100px;
-  top: 25%;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.input:focus ~ .highlight {
-  animation: inputHighlighter 0.3s ease;
-}
-
-@keyframes inputHighlighter {
-  from {
-    background: #4a89dc;
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
 }

@@ -38,6 +38,10 @@
   width: 292px;
   margin-top: 20px;
   background-color: #0563c9;
+  transition: background-color 0.3s ease;
+}
+.submitButton:hover {
+  background-color: #066fdf;
 }
 .bar {
   position: relative;
