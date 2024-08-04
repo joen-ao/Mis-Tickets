@@ -133,8 +133,8 @@
   font-size: 15px;
 }
 .eventMap {
-  width: 100%;
-  height: 70vh;
+  width: 50%;
+  height: 37vh;
   object-fit: cover;
   border-radius: 8px;
 }
