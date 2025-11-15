@@ -1,18 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { memo } from "react";
-import styles from './event.module.css';
-
 import EventItem from "./components/Eventitem";
 
 const Events = ({ searchTerm, events }) => {
-    
-    
     const navigate = useNavigate();
 
     const handleEvenItemClick = (id) =>{
         navigate(`/detail/${id}`)
     }
-
 
     const renderEvents = () =>{
         let eventsFiltered = events;
@@ -36,10 +31,8 @@ const Events = ({ searchTerm, events }) => {
         ))
     }
 
-    
-
     return(
-        <div className={styles.eventsContainer}>
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-6 p-6">
             {renderEvents()}
         </div>
     );
