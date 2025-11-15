@@ -116,21 +116,19 @@ const Home = () => {
   };
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark">
-      <div className="layout-container flex h-full grow flex-col">
-        <div className="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
-          <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
+    <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+      <div className="layout-container flex h-full grow flex-col w-full">
+        <div className="flex flex-1 justify-center w-full">
+          <div className="layout-content-container flex flex-col w-full max-w-[1400px] flex-1">
             <Navbar onSearch={handleNavbarOnSearch} ref={containerRef} />
-            <main className="flex flex-col gap-8 mt-8">
-              <div className="flex flex-wrap justify-between gap-4 px-6">
-                <div className="flex min-w-72 flex-col gap-2">
-                  <p className="text-slate-900 dark:text-slate-50 text-4xl font-black leading-tight tracking-[-0.033em]">
-                    Próximos Eventos
-                  </p>
-                  <p className="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal">
-                    Descubre los mejores eventos cerca de ti
-                  </p>
-                </div>
+            <main className="flex flex-col gap-4 sm:gap-6 mt-4 sm:mt-6 px-2 sm:px-4 md:px-6 w-full">
+              <div className="flex flex-col gap-2 w-full">
+                <p className="text-slate-900 dark:text-slate-50 text-xl sm:text-2xl md:text-3xl font-black leading-tight tracking-[-0.033em]">
+                  Próximos Eventos
+                </p>
+                <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm md:text-base font-normal leading-normal">
+                  Descubre los mejores eventos cerca de ti
+                </p>
               </div>
               {renderEvents()}
             </main>
