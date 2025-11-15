@@ -1,0 +1,73 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(116, 113, 113);
+  width: 380px;
+  margin: 150px auto;
+  padding: 1em 2em 2em 2em;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+}
+.label {
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+  justify-content: center;
+  align-items: center;
+}
+.input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  appearance: none;
+  width: 280px;
+  margin-top: 4px;
+  background-color: rgb(255, 255, 255);
+  color: #636363;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #757575;
+}
+.input:focus {
+  outline: none;
+}
+.submitButton {
+  width: 292px;
+  margin-top: 20px;
+  background-color: #0563c9;
+  transition: background-color 0.3s ease;
+}
+.submitButton:hover {
+  background-color: #066fdf;
+}
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #4a89dc;
+  transition: all 0.2s ease;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+.input:focus ~ .bar:before,
+.input:focus ~ .bar:after {
+  width: 50%;
+}

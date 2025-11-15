@@ -1,0 +1,41 @@
+.pagination {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page {
+  font-size: 20px;
+  padding: 0 8px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #0563c9;
+}
+.previous,
+.next {
+  font-size: 24px;
+  cursor: pointer;
+}
+.previous {
+  margin-right: 8px;
+  color: #0563c9;
+}
+.next {
+  margin-left: 8px;
+  color: #0563c9;
+}
+.activePage {
+  background-color: #0563c9;
+  color: #ffffff;
+  border-radius: 20px;
+}
+
+.disabledPage {
+  cursor: not-allowed;
+}
+.containerHome {
+  width: 100%;
+}
+.content {
+  margin-top: 100px; /* Ajusta este valor según la altura real de tu Navbar */
+}
